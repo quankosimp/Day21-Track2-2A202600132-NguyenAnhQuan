@@ -141,7 +141,7 @@ jobs:
           script: |
             pip3 install --user lightgbm==4.6.0 scikit-learn==1.4.2 joblib==1.4.2
             sudo systemctl restart mlops-serve
-            for i in 1 2 3 4 5 6; do
+            for i in $(seq 1 24); do
               sleep 5
               if curl -sf http://localhost:8000/health; then
                 echo "Health check passed."
@@ -150,4 +150,6 @@ jobs:
               echo "Health check failed on attempt $i, retrying..."
             done
             echo "Health check failed after multiple attempts."
+            sudo systemctl status mlops-serve -l --no-pager || true
+            sudo journalctl -u mlops-serve -n 120 --no-pager || true
             exit 1
