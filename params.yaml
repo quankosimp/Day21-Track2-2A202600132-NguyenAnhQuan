@@ -1,5 +1,13 @@
-# Sieu tham so cho mo hinh RandomForestClassifier
-# Thay doi cac gia tri nay giua cac lan chay de thi nghiem (Buoc 1)
-n_estimators: 100
-max_depth: 5
-min_samples_split: 2
+# Sieu tham so cho mo hinh (rf/et/gb/hgb/lgbm/voting)
+model_type: voting
+use_phase2: true
+et_n_estimators: 1000
+et_max_features: sqrt
+rf_n_estimators: 1200
+rf_max_features: sqrt
+lgbm_n_estimators: 900
+lgbm_learning_rate: 0.03
+lgbm_num_leaves: 63
+lgbm_max_depth: -1
+lgbm_subsample: 0.9
+lgbm_colsample_bytree: 0.9

@@ -9,3 +9,5 @@ uvicorn==0.29.0
 joblib==1.4.2
 google-cloud-storage==2.16.0
 pyyaml==6.0.1
+setuptools<81
+lightgbm==4.6.0
